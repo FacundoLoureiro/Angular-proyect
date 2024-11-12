@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { DashboardChildComponent } from './components/dashboard-child/dashboard-child.component';
 
 @Component({
@@ -12,4 +12,11 @@ import { DashboardChildComponent } from './components/dashboard-child/dashboard-
 })
 export class DashboardComponent {
   text = 'dashboard'
+
+  constructor(cd: ChangeDetectorRef) {
+    setTimeout(() => {
+      this.text = 'dashboard text changed';
+      cd.detectChanges();
+    }, 5000)
+  }
 }
