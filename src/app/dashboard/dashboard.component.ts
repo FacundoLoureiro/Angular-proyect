@@ -13,10 +13,7 @@ import { DashboardChildComponent } from './components/dashboard-child/dashboard-
 export class DashboardComponent {
   text = 'dashboard'
 
-  constructor(cd: ChangeDetectorRef) {
-    setTimeout(() => {
-      this.text = 'dashboard text changed';
-      cd.detectChanges();
-    }, 5000)
+  handleClick() {
+    this.text = 'text changed by dashboard';
   }
 }
